@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucera Global — VIP Hair Restoration</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f3d;
+    --navy-mid: #1a3260;
+    --navy-light: #243d73;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --text-muted: #8a9bb5;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--navy);
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .logo span { color: var(--gold); }
+
+  .nav-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 73px);
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.8rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .trust-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  .badges {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+  }
+
+  .hero-right {
+    padding: 4rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .form-card { width: 100%; max-width: 420px; }
+
+  .form-header { margin-bottom: 2rem; }
+
+  .form-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-header p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  select {
+    appearance: none;
+    cursor: pointer;
+    color: rgba(255,255,255,0.5);
+  }
+
+  select option {
+    background: var(--navy-mid);
+    color: var(--white);
+  }
+
+  textarea {
+    resize: none;
+    height: 90px;
+    line-height: 1.6;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    border: none;
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy);
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .submit-btn:hover { background: var(--gold-light); }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .form-footer {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .success-msg .icon {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .success-msg h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .success-msg p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 3rem 1.5rem; }
+    h1 { font-size: 2.8rem; }
+    nav { padding: 1.2rem 1.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">LUCERA <span>GLOBAL</span></div>
+  <div style="display:flex;gap:1.5rem;align-items:center;">
+    <a href="/blog" style="font-size:0.75rem;letter-spacing:0.1em;color:var(--text-muted);text-decoration:none;text-transform:uppercase;">Journal</a>
+    <div class="nav-badge">Partner Enquiries</div>
+  </div>
+</nav>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Exclusive Partnership Programme</div>
+    <h1>Premium Hair<br>Restoration.<br><em>Istanbul.</em></h1>
+    <p class="hero-desc">
+      We partner with London's finest grooming establishments to offer their clients world-class hair restoration procedures — with full VIP concierge from door to door.
+    </p>
+
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-num">£500</div>
+        <div class="trust-label">Per referral</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">JCI</div>
+        <div class="trust-label">Accredited clinics</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">5★</div>
+        <div class="trust-label">End-to-end care</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="badges">
+      <div class="badge">Mercedes-Benz Transfers</div>
+      <div class="badge">Hilton Accommodation</div>
+      <div class="badge">12-Month Aftercare</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>Request the Executive Deck</h2>
+        <p>Complete the form below and we'll send your personalised partnership overview within 24 hours.</p>
+      </div>
+
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="James" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Wright" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" placeholder="Your barbershop name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Business Email</label>
+          <input type="email" placeholder="you@yourbusiness.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Location</label>
+          <select>
+            <option value="" disabled selected>Select your area</option>
+            <option>Mayfair</option>
+            <option>Chelsea</option>
+            <option>Knightsbridge</option>
+            <option>Shoreditch</option>
+            <option>Canary Wharf</option>
+            <option>Kensington</option>
+            <option>Other London</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Message (optional)</label>
+          <textarea placeholder="Tell us about your clientele or any questions you have..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Request Executive Deck →</button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="icon">✦</div>
+        <h3>Thank you.</h3>
+        <p>Your enquiry has been received. A member of the Lucera Global team will be in touch within 24 hours.</p>
+      </div>
+
+      <p class="form-footer">Your information is kept strictly confidential.<br>No commitment required.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
